@@ -1,22 +1,44 @@
+import React, { useEffect } from "react";
 import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Login from "./Pages/Login";
+// import Login from "./Pages/sample";
+// import Reg from "./Pages/sample-reg"
+// import Register from "./Pages/Register";
+// import Layout from "./Components/Layout";
+// import ProtectedRoute from "./Components/ProtectedRoute";
+// import ProtectedLoginRoute from "./Components/ProtectedLoginRoute";
+// import useAuth from "./Hooks/useAuth";
+// import CreateItem from "./Pages/CreateItem";
+import Homepage from "./Pages/Homepage";
+import Signup from "./Pages/Signup";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+const App = () => {
+  // const { user } = useAuth();
 
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Home from "./pages/Home";
-function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <>
+      <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Signup />} />
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/" element={<Layout />}> */}
+          <Route path="/homepage" element={<Homepage />} />
+            {/* <Route element={<ProtectedLoginRoute user={user} />}> */}
+              <Route path="/" element={<Login />} />
+              <Route path="register" element={<Signup />} />
+            {/* </Route> */}
+            {/* <Route element={<ProtectedRoute user={user} />}>       
+              <Route path="create" element={<CreateItem />} />
+            </Route> */}
+          {/* </Route> */}
         </Routes>
-      </BrowserRouter>
-    </div>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;

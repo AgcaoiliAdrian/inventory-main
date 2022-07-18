@@ -33,7 +33,7 @@ function Login() {
       .then(function (response) {
         if (response.data.message === "Success") {
           window.sessionStorage.setItem('username', data.username);
-          navigate(`/home`);
+          navigate(`/homepage`);
           
         } else if (response.data.message === "Invalid details") {
           toast({
